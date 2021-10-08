@@ -6,8 +6,8 @@ import org.gradle.internal.id.UUIDGenerator
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.21"
-    id("com.mkring.wildlydeplyplugin.deploy-wildfly-plugin") version "0.3.0"
+    kotlin("jvm") version "1.5.31"
+    id("com.mkring.wildlydeplyplugin.deploy-wildfly-plugin") version "0.3.1"
     war
 }
 buildscript {

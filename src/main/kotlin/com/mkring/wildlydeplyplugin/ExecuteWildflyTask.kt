@@ -6,7 +6,7 @@ import org.gradle.api.tasks.TaskAction
 import org.slf4j.LoggerFactory
 
 open class ExecuteWildflyTask : DefaultTask() {
-    val log = LoggerFactory.getLogger(ExecuteWildflyTask::class.java)
+    private val log = LoggerFactory.getLogger(ExecuteWildflyTask::class.java)
     @Input
     var host: String = "localhost"
     @Input

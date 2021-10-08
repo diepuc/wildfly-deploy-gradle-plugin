@@ -11,14 +11,14 @@ import org.gradle.api.tasks.TaskAction
 import org.slf4j.LoggerFactory
 
 open class DeployWildflyPlugin : Plugin<Project> {
-    val log = LoggerFactory.getLogger(DeployWildflyPlugin::class.java)
+    private val log = LoggerFactory.getLogger(DeployWildflyPlugin::class.java)
     override fun apply(project: Project) {
         log.debug("DeployWildflyPlugin applied")
     }
 }
 
 open class DeployWildflyTask : DefaultTask() {
-    val log = LoggerFactory.getLogger(DeployWildflyTask::class.java)
+    private val log = LoggerFactory.getLogger(DeployWildflyTask::class.java)
 
     @InputFile
     val file: RegularFileProperty = project.objects.fileProperty()

@@ -2,10 +2,10 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "com.mkring.wildlydeplyplugin"
-version = "0.3.0"
+version = "0.3.1"
 
 plugins {
-    kotlin("jvm") version "1.2.61"
+    kotlin("jvm") version "1.5.31"
     `java-gradle-plugin`
     `maven-publish`
     id("com.gradle.plugin-publish").version("0.10.0")
@@ -35,16 +35,16 @@ pluginBundle {
 }
 
 dependencies {
-    compile(kotlin("stdlib-jdk8", kotlinVersion))
-    runtime(kotlin("reflect", kotlinVersion))
-    compile("org.wildfly", "wildfly-cli", "8.2.1.Final")
+    compileOnly(kotlin("stdlib-jdk8", kotlinVersion))
+    runtimeOnly(kotlin("reflect", kotlinVersion))
+    compileOnly("org.wildfly", "wildfly-cli", "8.2.1.Final")
 
     compileOnly(gradleApi())
 
-    compile("org.slf4j:slf4j-api:1.7.25")
+    compileOnly("org.slf4j:slf4j-api:1.7.25")
 
-    testCompile(kotlin("test", kotlinVersion))
-    testCompile(kotlin("test-junit", kotlinVersion))
+    testCompileOnly(kotlin("test", kotlinVersion))
+    testCompileOnly(kotlin("test-junit", kotlinVersion))
 
 }
 tasks.withType<KotlinCompile> {
