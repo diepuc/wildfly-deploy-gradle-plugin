@@ -8,6 +8,7 @@ Gradle Plugin for deploying Files to Wildfly
 Successfully tested/known to work: Wildfly 10, Wildfly 14, Wildfly 15
 Jboss7: Use <version>-jboss7
 Wildfly 15: Use <version>-wildfly15
+Since version `0.3.1` use gradle 7.2
 ```
 If you have problems using cli batches, try the `-wildfly15` branch (see: #12).
 

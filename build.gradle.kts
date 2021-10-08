@@ -35,13 +35,13 @@ pluginBundle {
 }
 
 dependencies {
-    compileOnly(kotlin("stdlib-jdk8", kotlinVersion))
+    implementation(kotlin("stdlib-jdk8", kotlinVersion))
     runtimeOnly(kotlin("reflect", kotlinVersion))
-    compileOnly("org.wildfly", "wildfly-cli", "8.2.1.Final")
+    implementation("org.wildfly.core", "wildfly-cli", "10.0.3.Final")
 
-    compileOnly(gradleApi())
+    implementation(gradleApi())
 
-    compileOnly("org.slf4j:slf4j-api:1.7.25")
+    implementation("org.slf4j:slf4j-api:1.7.25")
 
     testCompileOnly(kotlin("test", kotlinVersion))
     testCompileOnly(kotlin("test-junit", kotlinVersion))
@@ -52,6 +52,7 @@ tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "1.8"
     }
 }
+
 publishing {
     repositories {
         mavenLocal()
