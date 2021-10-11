@@ -57,5 +57,13 @@ publishing {
     repositories {
         mavenLocal()
         maven(url = "build/lib")
+        maven {
+            url = uri("http://xxx/artifactory/releases/")
+            isAllowInsecureProtocol = true
+            credentials {
+                username = "xxx"
+                password = "xxx"
+            }
+        }
     }
 }
