@@ -37,7 +37,7 @@ pluginBundle {
 dependencies {
     implementation(kotlin("stdlib-jdk8", kotlinVersion))
     runtimeOnly(kotlin("reflect", kotlinVersion))
-    implementation("org.wildfly.core", "wildfly-cli", "10.0.3.Final")
+    implementation("org.wildfly", "wildfly-cli", "8.2.1.Final")
 
     implementation(gradleApi())
 
