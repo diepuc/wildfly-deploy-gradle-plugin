@@ -151,12 +151,16 @@ class FileDeployer(
 
     private fun enableDeploymentIfNecessary(name: String) {
         log.debug("\nchecking if deployment is enabled...")
-        val deploymentEnabled =
-            blockingCmd(deploymentInfoCmd, 2, ChronoUnit.MINUTES).response.get("result").asList().map {
-                it.asProperty().name to it.getParam("enabled").removePrefix("enabled: ")
-            }.firstOrNull {
-                it.first == name.removePrefix("--name=")
-            }?.second?.toBoolean()
+        var f = blockingCmd(deploymentInfoCmd, 2, ChronoUnit.MINUTES);
+        var deploymentEnabled = true;
+        if (f != null && f.response != null) {
+            deploymentEnabled =
+                    f.response.get("result").asList().map {
+                        it.asProperty().name to it.getParam("enabled").removePrefix("enabled: ")
+                    }.firstOrNull {
+                        it.first == name.removePrefix("--name=")
+                    }?.second?.toBoolean() == true;
+        }
 
         if (deploymentEnabled == false) {
             log.debug("not enabled! going to enable now!")

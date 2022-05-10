@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "com.mkring.wildlydeplyplugin"
-version = "0.3.1"
+version = "0.3.2"
 
 plugins {
     kotlin("jvm") version "1.5.31"
@@ -37,7 +37,7 @@ pluginBundle {
 dependencies {
     implementation(kotlin("stdlib-jdk8", kotlinVersion))
     runtimeOnly(kotlin("reflect", kotlinVersion))
-    implementation("org.wildfly", "wildfly-cli", "8.2.1.Final")
+    implementation("org.wildfly.core", "wildfly-cli", "18.1.0.Final")
 
     implementation(gradleApi())
 
@@ -58,12 +58,20 @@ publishing {
         mavenLocal()
         maven(url = "build/lib")
         maven {
-            url = uri("http://xxx/artifactory/releases/")
+            url = uri("http://gitrepo.zensistemi.com:8082/artifactory/releases/")
             isAllowInsecureProtocol = true
             credentials {
-                username = "xxx"
-                password = "xxx"
+                username = "maven"
+                password = "AlAb1234"
             }
         }
+//        maven {
+//            url = uri("http://xxx/artifactory/releases/")
+//            isAllowInsecureProtocol = true
+//            credentials {
+//                username = "xxx"
+//                password = "xxx"
+//            }
+//        }
     }
 }
